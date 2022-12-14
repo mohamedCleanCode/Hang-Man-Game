@@ -1,0 +1,141 @@
+:root {
+  --main-color: #222;
+  --main-boder-width: 5px;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
+}
+hr {
+  border: 1px solid #eee;
+}
+.container {
+  width: 90%;
+  margin: 20px auto;
+}
+.game-info {
+  display: flex;
+  margin-bottom: 15px;
+}
+.game-info .game-name {
+  flex: 1;
+  color: var(--main-color);
+  font-size: 30px;
+}
+.game-info .category {
+  color: var(--main-color);
+  font-size: 30px;
+}
+.game-info .category span {
+  color: red;
+  font-weight: bold;
+  font-size: 22px;
+}
+.game-info .category .content {
+  display: flex;
+}
+.content {
+  display: flex;
+}
+.content .hangman-draw {
+  flex: 1;
+  background-color: #eee;
+  height: 350px;
+  padding: 20px;
+}
+.hangman-draw .draw {
+  width: 80px;
+  height: 300px;
+  margin: auto;
+  border-bottom: var(--main-boder-width) solid var(--main-color);
+  position: relative;
+}
+.draw .stand {
+  position: absolute;
+  width: var(--main-boder-width);
+  height: 100%;
+  background-color: var(--main-color);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.draw .hang {
+  position: absolute;
+  width: 100%;
+  height: var(--main-boder-width);
+  background-color: var(--main-color);
+  left: 100%;
+  top: 40px;
+  transform: translateX(-50%);
+}
+.draw .rope {
+  position: absolute;
+  width: var(--main-boder-width);
+  height: 50px;
+  background-color: var(--main-color);
+  left: calc(100% + 37px);
+  top: 45px;
+  transform: translateX(-50%);
+}
+.draw .rope::before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: var(--main-boder-width) dashed var(--main-color);
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.draw .man .head {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: var(--main-boder-width) solid var(--main-color);
+  left: calc(100% + 12px);
+  top: 36%;
+}
+.draw .man .body {
+  position: absolute;
+  width: var(--main-boder-width);
+  height: 100px;
+  background-color: var(--main-color);
+  left: calc(100% + 35px);
+  top: 53%;
+}
+.draw .man .hands::before,
+.draw .man .hands::after,
+.draw .man .legs::before,
+.draw .man .legs::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: var(--main-boder-width);
+  background-color: var(--main-color);
+}
+.draw .man .hands::before {
+  left: 90%;
+  top: 65%;
+  transform: rotate(30deg);
+}
+.draw .man .hands::after {
+  right: -105%;
+  top: 65%;
+  transform: rotate(-30deg);
+}
+.draw .man .legs::before {
+  left: 90%;
+  top: 89%;
+  transform: rotate(-30deg);
+}
+.draw .man .legs::after {
+  right: -105%;
+  top: 89%;
+  transform: rotate(30deg);
+}
