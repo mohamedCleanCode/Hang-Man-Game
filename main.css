@@ -41,12 +41,14 @@ hr {
 }
 .content {
   display: flex;
+  flex-wrap: wrap;
 }
 .content .hangman-draw {
-  flex: 1;
+  width: 50%;
   background-color: #eee;
   height: 350px;
   padding: 20px;
+  margin: auto;
 }
 .hangman-draw .draw {
   width: 80px;
@@ -54,6 +56,7 @@ hr {
   margin: auto;
   border-bottom: var(--main-boder-width) solid var(--main-color);
   position: relative;
+  margin-left: 33%;
 }
 .draw .stand {
   position: absolute;
@@ -138,4 +141,20 @@ hr {
   right: -105%;
   top: 89%;
   transform: rotate(30deg);
+}
+.letters {
+  width: 50%;
+  height: 300px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 80px;
+}
+.letters .letter {
+  display: inline-block;
+  background-color: #4caf50;
+  margin: 0 0 10px 10px;
+  padding: 10px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
 }
