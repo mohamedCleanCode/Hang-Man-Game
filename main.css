@@ -158,3 +158,32 @@ hr {
   border-radius: 6px;
   cursor: pointer;
 }
+.letters .letter.clicked {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.letters-guess {
+  background-color: #eee;
+  height: 100px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.letters-guess span {
+  display: inline-block;
+  background-color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 6px;
+  border-bottom: 1px solid var(--main-color);
+  color: var(--main-color);
+  font-size: 22px;
+  line-height: 55px;
+  text-align: center;
+  transition: 0.4s;
+}
+.letters-guess span.has-space {
+  border: none;
+  background-color: none;
+}
