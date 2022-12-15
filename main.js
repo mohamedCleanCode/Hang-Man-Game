@@ -3,7 +3,7 @@ const letters = "abcdefghijklmnopqrstuvwxyz";
 const arrayOfLetters = letters.split("");
 const lettesrDom = document.querySelector(".letters");
 const categoryDom = document.querySelector(".category span");
-const lettersGuess = document.querySelector(".letters-guess");
+const lettersGuessContainer = document.querySelector(".letters-guess");
 
 // Add letters into DOM
 arrayOfLetters.forEach((letter) => {
@@ -26,7 +26,7 @@ const words = {
     "twitter",
     "youtube",
   ],
-  countries: ["Egypt", "America", "Qatar", "Russia", "Palestine"],
+  countries: ["egypt", "america", "qatar", "russia", "palestine"],
 };
 
 let categories = Object.keys(words);
@@ -42,19 +42,30 @@ let chosenWordArray = chosenWord.split("");
 // Add category to DOM
 categoryDom.innerHTML = `${categoryRandom}`;
 
-// Add the length of choose array to lettersGuess dom
+// Add the length of choose array to lettersGuessContainer dom
 chosenWordArray.forEach((letter) => {
   let span = document.createElement("span");
   if (letter == " ") {
     span.className = "has-space";
     span.innerHTML = "-";
   }
-  lettersGuess.appendChild(span);
+  lettersGuessContainer.appendChild(span);
 });
 
 // Clicking on letter
 document.addEventListener("click", (e) => {
   if (e.target.className === "letter") {
     e.target.classList.add("clicked");
+    let clickedLetter = e.target.innerHTML.toLowerCase();
+    chosenWordArray.forEach((letter, letterIndex) => {
+      if (clickedLetter === letter) {
+        const lettersGuess = document.querySelectorAll(".letters-guess span");
+        lettersGuess.forEach((span, spanIndex) => {
+          if (letterIndex === spanIndex) {
+            span.innerHTML = clickedLetter;
+          }
+        });
+      }
+    });
   }
 });
