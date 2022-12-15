@@ -57,6 +57,11 @@ hr {
   border-bottom: var(--main-boder-width) solid var(--main-color);
   position: relative;
   margin-left: 33%;
+  display: none;
+  transition: 0.3s;
+}
+.hangman-draw .draw.wrong-1 {
+  display: block;
 }
 .draw .stand {
   position: absolute;
@@ -65,6 +70,11 @@ hr {
   background-color: var(--main-color);
   left: 50%;
   transform: translateX(-50%);
+  display: none;
+  transition: 0.3s;
+}
+.draw.wrong-2 .stand {
+  display: block;
 }
 .draw .hang {
   position: absolute;
@@ -74,6 +84,11 @@ hr {
   left: 100%;
   top: 40px;
   transform: translateX(-50%);
+  display: none;
+  transition: 0.3s;
+}
+.draw.wrong-3 .hang {
+  display: block;
 }
 .draw .rope {
   position: absolute;
@@ -83,6 +98,11 @@ hr {
   left: calc(100% + 37px);
   top: 45px;
   transform: translateX(-50%);
+  display: none;
+  transition: 0.3s;
+}
+.draw.wrong-4 .rope {
+  display: block;
 }
 .draw .rope::before {
   content: "";
@@ -94,6 +114,11 @@ hr {
   top: 45px;
   left: 50%;
   transform: translateX(-50%);
+  display: none;
+  transition: 0.3s;
+}
+.draw.wrong-5 .rope::before {
+  display: block;
 }
 .draw .man .head {
   position: absolute;
@@ -103,6 +128,11 @@ hr {
   border: var(--main-boder-width) solid var(--main-color);
   left: calc(100% + 12px);
   top: 36%;
+  display: none;
+  transition: 0.3s;
+}
+.draw.wrong-6 .head {
+  display: block;
 }
 .draw .man .body {
   position: absolute;
@@ -111,6 +141,11 @@ hr {
   background-color: var(--main-color);
   left: calc(100% + 35px);
   top: 53%;
+  display: none;
+  transition: 0.3s;
+}
+.draw.wrong-7 .body {
+  display: block;
 }
 .draw .man .hands::before,
 .draw .man .hands::after,
@@ -121,26 +156,43 @@ hr {
   width: 50px;
   height: var(--main-boder-width);
   background-color: var(--main-color);
+  transition: 0.3s;
 }
 .draw .man .hands::before {
   left: 90%;
   top: 65%;
   transform: rotate(30deg);
+  display: none;
+}
+.draw.wrong-8 .man .hands::before {
+  display: block;
 }
 .draw .man .hands::after {
   right: -105%;
   top: 65%;
   transform: rotate(-30deg);
+  display: none;
+}
+.draw.wrong-9 .man .hands::after {
+  display: block;
 }
 .draw .man .legs::before {
   left: 90%;
   top: 89%;
   transform: rotate(-30deg);
+  display: none;
+}
+.draw.wrong-10 .man .legs::before {
+  display: block;
 }
 .draw .man .legs::after {
   right: -105%;
   top: 89%;
   transform: rotate(30deg);
+  display: none;
+}
+.draw.wrong-11 .man .legs::after {
+  display: block;
 }
 .letters {
   width: 50%;

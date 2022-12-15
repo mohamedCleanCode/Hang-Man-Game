@@ -4,6 +4,7 @@ const arrayOfLetters = letters.split("");
 const lettesrDom = document.querySelector(".letters");
 const categoryDom = document.querySelector(".category span");
 const lettersGuessContainer = document.querySelector(".letters-guess");
+const hangmanDraw = document.querySelector(".hangman-draw .draw");
 
 // Add letters into DOM
 arrayOfLetters.forEach((letter) => {
@@ -52,14 +53,22 @@ chosenWordArray.forEach((letter) => {
   lettersGuessContainer.appendChild(span);
 });
 
+// Select all spans lettersGuessContainer
+const lettersGuess = document.querySelectorAll(".letters-guess span");
+
+// The number of wrong attempts
+let wrongAttempts = 0;
+
 // Clicking on letter
 document.addEventListener("click", (e) => {
+  // Set status
+  let statusCheck = false;
   if (e.target.className === "letter") {
     e.target.classList.add("clicked");
     let clickedLetter = e.target.innerHTML.toLowerCase();
     chosenWordArray.forEach((letter, letterIndex) => {
       if (clickedLetter === letter) {
-        const lettersGuess = document.querySelectorAll(".letters-guess span");
+        statusCheck = true;
         lettersGuess.forEach((span, spanIndex) => {
           if (letterIndex === spanIndex) {
             span.innerHTML = clickedLetter;
@@ -67,5 +76,10 @@ document.addEventListener("click", (e) => {
         });
       }
     });
+    // if letter is not correct
+    if (statusCheck !== true) {
+      wrongAttempts++;
+      hangmanDraw.classList.add(`wrong-${wrongAttempts}`);
+    }
   }
 });
