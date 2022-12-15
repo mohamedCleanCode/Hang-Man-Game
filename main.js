@@ -5,6 +5,10 @@ const lettesrDom = document.querySelector(".letters");
 const categoryDom = document.querySelector(".category span");
 const lettersGuessContainer = document.querySelector(".letters-guess");
 const hangmanDraw = document.querySelector(".hangman-draw .draw");
+const success = document.getElementById("success");
+const good = document.getElementById("good");
+const failed = document.getElementById("failed");
+const bad = document.getElementById("bad");
 
 // Add letters into DOM
 arrayOfLetters.forEach((letter) => {
