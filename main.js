@@ -9,6 +9,7 @@ const success = document.getElementById("success");
 const good = document.getElementById("good");
 const failed = document.getElementById("failed");
 const bad = document.getElementById("bad");
+let result = document.querySelector(".result span");
 
 // Add letters into DOM
 arrayOfLetters.forEach((letter) => {
@@ -76,6 +77,7 @@ document.addEventListener("click", (e) => {
         lettersGuess.forEach((span, spanIndex) => {
           if (letterIndex === spanIndex) {
             span.innerHTML = clickedLetter;
+            span.classList.add("done");
           }
         });
       }
@@ -83,7 +85,33 @@ document.addEventListener("click", (e) => {
     // if letter is not correct
     if (statusCheck !== true) {
       wrongAttempts++;
+      result.innerHTML -= 1;
       hangmanDraw.classList.add(`wrong-${wrongAttempts}`);
+      bad.play();
+      if (wrongAttempts === 7) {
+        lettesrDom.classList.add("end-game");
+        failed.play();
+        Swal.fire({
+          title: `Game Over! The Word Is ${
+            chosenWord[0].toUpperCase() + chosenWord.slice(1)
+          }`,
+          text: "Try Again!",
+          icon: "error",
+          confirmButtonText: "Try",
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      }
+    } else {
+      let done = document.querySelectorAll(".done");
+      if (done.length === chosenWord.length) {
+        setTimeout(() => {
+          success.play();
+          Swal.fire("Good job!", "You clicked the button!", "success");
+        });
+      }
+      good.play();
     }
   }
 });

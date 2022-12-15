@@ -21,17 +21,19 @@ hr {
 .game-info {
   display: flex;
   margin-bottom: 15px;
+  justify-content: space-between;
 }
 .game-info .game-name {
-  flex: 1;
   color: var(--main-color);
   font-size: 30px;
 }
-.game-info .category {
+.game-info .category,
+.game-info .result {
   color: var(--main-color);
   font-size: 30px;
 }
-.game-info .category span {
+.game-info .category span,
+.game-info .result span {
   color: red;
   font-weight: bold;
   font-size: 22px;
@@ -200,6 +202,9 @@ hr {
   padding: 20px;
   text-align: center;
   margin-top: 80px;
+}
+.letters.end-game {
+  pointer-events: none;
 }
 .letters .letter {
   display: inline-block;
