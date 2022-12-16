@@ -108,8 +108,9 @@ document.addEventListener("click", (e) => {
       if (done.length === chosenWord.length) {
         setTimeout(() => {
           success.play();
-          Swal.fire("Good job!", "You clicked the button!", "success");
-        });
+          Swal.fire("Good job!", "success");
+          window.location.reload();
+        }, 2000);
       }
       good.play();
     }

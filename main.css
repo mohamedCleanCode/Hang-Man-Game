@@ -23,6 +23,12 @@ hr {
   margin-bottom: 15px;
   justify-content: space-between;
 }
+@media (max-width: 700px) {
+  .game-info {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 .game-info .game-name {
   color: var(--main-color);
   font-size: 30px;
@@ -44,6 +50,7 @@ hr {
 .content {
   display: flex;
   flex-wrap: wrap;
+  margin: 10px 0;
 }
 .content .hangman-draw {
   width: 50%;
@@ -52,9 +59,15 @@ hr {
   padding: 20px;
   margin: auto;
 }
+@media (max-width: 600px) {
+  .content .hangman-draw {
+    width: 100%;
+    height: 300px;
+  }
+}
 .hangman-draw .draw {
   width: 80px;
-  height: 300px;
+  height: 100%;
   margin: auto;
   border-bottom: var(--main-boder-width) solid var(--main-color);
   position: relative;
@@ -129,9 +142,14 @@ hr {
   border-radius: 50%;
   border: var(--main-boder-width) solid var(--main-color);
   left: calc(100% + 12px);
-  top: 36%;
+  top: 34%;
   display: none;
   transition: 0.3s;
+}
+@media (max-width: 600px) {
+  .draw .man .head {
+    top: 41%;
+  }
 }
 .draw.wrong-6 .head {
   display: block;
@@ -142,9 +160,14 @@ hr {
   height: 100px;
   background-color: var(--main-color);
   left: calc(100% + 35px);
-  top: 53%;
+  top: 50%;
   display: none;
   transition: 0.3s;
+}
+@media (max-width: 600px) {
+  .draw .man .body {
+    top: 60%;
+  }
 }
 .draw.wrong-7 .body {
   display: block;
@@ -201,7 +224,15 @@ hr {
   height: 300px;
   padding: 20px;
   text-align: center;
-  margin-top: 80px;
+  margin: 20px auto;
+}
+@media (max-width: 600px) {
+  .letters {
+    width: 100%;
+    height: 250px;
+    padding: 10px;
+    margin: 0;
+  }
 }
 .letters.end-game {
   pointer-events: none;
@@ -239,6 +270,13 @@ hr {
   line-height: 55px;
   text-align: center;
   transition: 0.4s;
+}
+@media (max-width: 600px) {
+  .letters-guess span {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+  }
 }
 .letters-guess span.has-space {
   border: none;
